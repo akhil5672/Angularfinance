@@ -1,0 +1,9 @@
+.vertical-align{
+    display: flex;
+    align-items: center;
+}
+
+.card{
+    margin: 0 auto;
+    float: none;
+}

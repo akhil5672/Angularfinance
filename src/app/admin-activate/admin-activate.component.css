@@ -1,0 +1,46 @@
+/* #activation_div{
+    background-color: #2d85b0;
+    width: 500px;
+    margin: 150px 0px 50px 500px;
+    color:white;
+    font-size: 18px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2{
+    text-align: center;
+}
+#radio_div{
+    text-align: center;
+}
+
+#radio_table{
+    width:50%;
+    margin-left: 20%;
+}
+#cardtype{
+    width: 18px;
+     height: 18px;
+     
+}
+#btn_submit{
+    border-radius: 10px;
+    color: #2d85b0;
+    
+    width: 80px;
+    height: 30px;
+   font-style:normal; 
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+} */
+.vertical-align{
+    display: flex;
+    align-items: center;
+}
+
+.card{
+    margin: 0 auto;
+    float: none;
+}
+

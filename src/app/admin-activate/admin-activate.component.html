@@ -1,0 +1,42 @@
+<div style="background-color:#DADADA;margin-top: 10px;">
+    <div class="top">
+        <div style="margin-top: 30px; margin-bottom: 150px; width: 500px;" class="card">
+    <div class="card-header">
+    Activate User's Account
+    </div>
+    <div class="card-body">
+        <form #f="ngForm" >
+            <div class="form-group">
+                <input type="radio" style="height:15px; width:15px;" id="cardtype" [(ngModel)]="status" name="cardtype" value=true>&nbsp;<span style="position: fixed; font-size:18px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" >YES</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" style="height:15px; width:15px;" id="cardtype" [(ngModel)]="status" name="cardtype" value=false>&nbsp;<span style="position: fixed; font-size:18px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">NO</span>
+            </div>                        
+        </form>
+        <br>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+        
+    </div>
+</div>
+<p style="color:#DADADA">.</p>
+</div>
+</div>
+
+<style>
+    .card-body{
+        text-align: center;
+        font-style: Roboto,HelveticaNeue-Light,sans-serif;
+            font-size: 20px;
+    }
+    .top{
+        padding-top: 150px;
+    }
+    button{
+        width: fit-content;
+    }
+    .card-header{
+        text-align: center;
+        font-style: Roboto,HelveticaNeue-Light,sans-serif;
+            font-size: 26px;
+    }
+</style>
+
+

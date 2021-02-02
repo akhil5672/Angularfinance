@@ -1,0 +1,34 @@
+<div>
+    <div>
+        <div class="topnav">
+            <table id="nav_table">
+              <tr>
+                <th><a routerLink="/Register"><span style="color:whitesmoke;font-family:Roboto,HelveticaNeue-Light,sans-serif;font-size: 28px;">Register</span></a></th>
+              <th><a *ngIf="this.registerService.isUserLoggedIn==false" routerLink="/Login"><span style="color:whitesmoke;font-family:Roboto,HelveticaNeue-Light,sans-serif;font-size: 28px;">Login</span></a></th>
+              <th><a *ngIf="this.registerService.isUserLoggedIn==true" (click)="clkLogOut()"><span style="color:whitesmoke;font-family:Roboto,HelveticaNeue-Light,sans-serif;font-size: 28px;">Logout</span></a></th>
+            </tr>
+          </table>
+          </div>
+    </div>
+    <router-outlet></router-outlet>
+    <footer>
+        <div style="margin-top: 20px;" class="card">
+          <div class= "card" style="background-color:#33475b;height: 120px;color: white;">
+            <div style="text-align: center;font-family: Roboto,HelveticaNeue-Light,sans-serif;padding-top: 20px;"><strong> © 2009 - 2021 LFI. All Rights Reserved. LFI® is a registered
+              trademark.</strong></div><br>
+            <div style="text-align: center;font-family: sans-serif;"><strong> by LFI | WordPress hosting by L&T | WordPress CDN by L&T Group</strong> </div>
+          </div>
+        </div>
+      </footer>
+</div>
+    <style>
+        .card-body{
+            text-align: center;
+        }
+        .top{
+            padding-top: 150px;
+        }
+        button{
+            width: fit-content;
+        }
+    </style>

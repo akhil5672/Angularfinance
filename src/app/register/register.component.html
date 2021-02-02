@@ -1,0 +1,236 @@
+<div style="background-color:#DADADA;margin-top: 10px;">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+crossorigin="anonymous"></script>
+
+
+<div style="margin-top: 15px; width: 600px;" class="card">
+<div class="card-header">
+    Register Here
+</div>
+<div class="card-body">
+    <form #f="ngForm"novalidate (ngSubmit)=onSubmit(f) >
+        <div class="form-group">
+            <label for="registerName">Name</label>
+            <input type="text" name="customer_name" [(ngModel)]="register.customer_name" required #customer_name="ngModel" class="form-control"
+                id="customer_name" placeholder="Enter Name">
+        </div>
+
+        <div *ngIf=" customer_name.invalid && (f.submitted || customer_name.touched)"
+        class="alert alert-danger">
+        <div *ngIf="customer_name.errors?.required"> Name is required. </div>
+    </div>
+
+        <!-- <div *ngIf="!customer_name?.valid && (customer_name?.dirty || customer_name?.touched)" class="alert alert-danger">
+
+            <div *ngIf="customer_name.errors.required">
+        
+               Name is required
+        
+            </div>
+        </div> -->
+
+        <div class="form-group">
+            <label for="registerEmail">Email</label>
+            <input type="email" name="user_email" class="form-control" [(ngModel)]="register.user_email" required
+                #user_email="ngModel" id="user_email" placeholder="Enter email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,3}$">
+        </div>
+
+        <div *ngIf=" user_email.invalid && (f.submitted || user_email.touched)"
+        class="alert alert-danger">
+        <div *ngIf="user_email.errors?.required"> Email is required. </div>
+        <div *ngIf="user_email.errors?.pattern"> Invalid Email. </div>
+    </div>
+
+
+        <div class="form-group">
+            <label for="registerPhone">Phone Number</label>
+            <input type="tel" name="phone_number" class="form-control" [(ngModel)]="register.phone_number" required
+                minlength="10" maxlength="10" id="phone_number" #phone_number="ngModel" placeholder="Enter Phone Number">
+        </div>
+
+        <div *ngIf=" phone_number.invalid && (f.submitted || phone_number.touched)"
+        class="alert alert-danger">
+        <div *ngIf="phone_number.errors?.required"> Phone number is required. </div>
+    </div>
+
+        <div class="form-group">
+            <label for="registerUsername">Username</label>
+            <input type="text" name="user_name" class="form-control" [(ngModel)]="register.user_name" required
+                #user_name="ngModel" id="user_name" placeholder="Enter username">
+        </div>
+
+        <div *ngIf=" user_name.invalid && (f.submitted || user_name.touched)"
+        class="alert alert-danger">
+        <div *ngIf="user_name.errors?.required"> User name is required. </div>
+    </div>
+
+        <div class="form-group">
+            <label for="userDOB">Date of Birth</label>
+            <input type="date" name="customer_dob" class="form-control" [(ngModel)]="register.customer_dob" required
+                #customer_dob="ngModel" id="customer_dob" placeholder="Enter Date of Birth">
+        </div>
+
+        <div *ngIf=" customer_dob.invalid && (f.submitted || customer_dob.touched)"
+        class="alert alert-danger">
+        <div *ngIf="customer_dob.errors?.required"> Date of Birth is required. </div>
+    </div>
+  
+
+        <div class="form-group">
+            <label for="registerPassword">Password</label>
+            <input type="password" name="user_password" class="form-control" [(ngModel)]="register.user_password" required
+                #user_password="ngModel" id="user_assword" placeholder="Password" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}"
+                />
+            <div *ngIf="user_password.invalid && (f.submitted || user_password.touched)" class="alert alert-danger">
+                <div *ngIf="user_password.errors?.required"> Password is required. </div>
+                <div *ngIf="user_password.errors?.pattern">
+                    Password should contain:
+                     <ul>
+                         <li>minimum length of 8 characters</li>
+                         <li>atleast one number, uppercase, lowercase, special character </li>
+                       
+                        
+                     </ul>  
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="registerCpassword">Confirm Password</label>
+            <input type="password" name="confirmpassword" class="form-control" ngModel required
+                #confirmpassword="ngModel" id="confirmpassword" placeholder="Enter Password again"
+                pattern="{{ user_password.value }}" />
+            <div *ngIf=" confirmpassword.invalid && (f.submitted || confirmpassword.touched)"
+                class="alert alert-danger">
+                <div *ngIf="confirmpassword.errors?.required"> Confirm password is required. </div>
+                <div *ngIf="confirmpassword.errors?.pattern"> Password does not match.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="registerAddress">Address</label>
+            <textarea class="form-control" [(ngModel)]="register.user_address" required name="user_address"
+                #user_address="ngModel" id="user_address" placeholder="Enter Address"></textarea>
+        </div>
+
+        <div *ngIf=" user_address.invalid && (f.submitted || user_address.touched)"
+        class="alert alert-danger">
+        <div *ngIf="user_address.errors?.required"> Address is required. </div>
+    </div>
+        
+        <div class="form-group">
+            <label for="registerCardtype">Card Type</label><br/>
+            <label><input type="radio"  [(ngModel)]="register.cardtype_id" name="cardtype_id" value=2 checked=true>
+              &nbsp;  Titanium</label> &nbsp;&nbsp;&nbsp;
+            <label><input type="radio" [(ngModel)]="register.cardtype_id" name="cardtype_id" value=1 >
+            &nbsp; Gold</label>
+        </div>
+      
+
+        <div class="form-group">
+            <label for="registerBank">Bank Name</label>
+            <!-- <select>
+                <option selected>Select Bank</option>
+                <option>AXIS</option>
+                <option>Bank of Baroda</option>
+                <option>Bank of India</option>
+                <option>Citi Bank</option>
+                <option>HDFC</option>
+                <option>ICICI</option>
+                <option>Kotak</option>
+                <option>PNB</option>
+                <option>SBI</option>
+                <option>Union Bank</option>
+            </select> -->
+
+            <input type="text" class="form-control" [(ngModel)]="register.bank_name" required name="bank_name"
+                #bank_name="ngModel" id="bank_name" placeholder="Enter Bank Name">
+        </div>
+
+        <div *ngIf=" bank_name.invalid && (f.submitted || bank_name.touched)"
+        class="alert alert-danger">
+        <div *ngIf="bank_name.errors?.required"> Bank is required. </div>
+    </div>
+    <!-- <select name="bank_name" id="bank_name" ngModel>
+        <option selected="" value="">Select Bank</option>
+        <option [ngValue]="c.name" *ngFor="let c of bankList">
+          {{c.name}}
+        </option>
+      </select> -->
+
+        <div class="form-group">
+            <label for="registerSavingsinfo">Savings Account Info</label>
+            <input type="text" class="form-control" [(ngModel)]="register.account_number" required
+                name="account_number" #account_number="ngModel" id="account_number" maxlength="15" minlength="11"
+                placeholder="Enter Savings Account Info">
+        </div>
+
+        <div *ngIf=" account_number.invalid && (f.submitted || account_number.touched)"
+        class="alert alert-danger">
+        <div *ngIf="account_number.errors?.required"> Account number is required. </div>
+        <div *ngIf="account_number.errors?.maxlength">Maximum length is 15</div>
+        <div *ngIf="account_number.errors?.minlength">Minimum length is 11</div>
+    </div>
+
+        <div class="form-group">
+            <label for="registerIfsc">IFSC Code</label>
+            <input type="text" class="form-control" [(ngModel)]="register.IFSC_code" required name="IFSC_code"
+                #IFSC_code="ngModel" id="IFSC_code" placeholder="Enter IFSC Code">
+        </div>
+
+        <div *ngIf=" IFSC_code.invalid && (f.submitted || IFSC_code.touched)"
+        class="alert alert-danger">
+        <div *ngIf="IFSC_code.errors?.required"> IFSC code is required. </div>
+    </div>
+
+        <div class="form-group">
+        <label for="pan_number">PAN Number</label><br>
+        <input type="text" [(ngModel)]="register.pan_number" required id="pan_number" #pan_number="ngModel" class="form-control" 
+        placeholder="Enter PAN Number"  name="pan_number" pattern="([A-Z]){5}([0-9]){4}([A-Z]){1}$">
+        </div>
+
+        <div *ngIf="pan_number.invalid && (f.submitted || pan_number.touched)" class="alert alert-danger">
+            <div *ngIf="pan_number.errors?.required"> Pan is required. </div>
+            <div *ngIf="pan_number.errors?.pattern">
+                Incorrect PAN Number
+                  
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="RegisterCardFee">Processing Fee</label> <br/>
+            <input type="checkbox" 
+           style="height: 20px;width: 20px;" class="checkbox" [(ngModel)]="register.haspaid" required name="haspaid"
+                #haspaid="ngModel" id="haspaid"> &nbsp;<span>(Check if processing fee ₹153.00 is paid)</span>
+        </div>
+
+        <div *ngIf=" haspaid.invalid && (f.submitted || haspaid.touched)"
+        class="alert alert-danger">
+        <div *ngIf="haspaid.errors?.required"> Required. </div>
+    </div>
+
+        <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Register </button>
+
+        &nbsp;
+        <button type="button" class="btn btn-primary" (click)="f.reset()">Reset</button>
+        <p>Already a user?
+            <a routerLink="/Login">Login</a>
+        </p>
+    </form>
+</div>
+</div>
+
+</div>
+<style>
+    .card-header{
+        text-align: center;
+        font-style: Roboto,HelveticaNeue-Light,sans-serif;
+        font-size: 24px;
+    }
+    .card-body{
+        font-style: Roboto,HelveticaNeue-Light,sans-serif;
+          font-size: 20px;
+    }
+
+</style>
+ 
+

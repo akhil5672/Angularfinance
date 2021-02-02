@@ -1,0 +1,38 @@
+.font-type{
+    font-family:Roboto,HelveticaNeue-Light,sans-serif; ;
+    font-size: medium;
+}
+
+.card{
+    margin: auto;
+    float: none;
+}
+
+.col-sm{
+    padding-left: 70px;
+    font-family:Roboto,HelveticaNeue-Light,sans-serif;;
+    font-size: mediu;
+}
+
+.vertical-align{
+    display: flex;
+    align-items: center;
+}
+
+ .topnav {
+    height: 70px;
+    overflow: hidden;
+    background-color:#f8c0b5;
+    width: 100%;
+    margin: auto;
+  
+  }
+  #nav_table{
+    float: right;
+    width: 20%;
+    margin: 30px 0px 0px 0px;
+    margin-right: 20px;
+  }
+
+
+  

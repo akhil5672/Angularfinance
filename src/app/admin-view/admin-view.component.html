@@ -1,0 +1,46 @@
+<div style="background-color:#DADADA;margin-top: 10px;">
+<div style="margin-top: 30px; margin-bottom:380px" class="card">
+    <div class="card-body">
+        <div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Date of Birth</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Card Type</th>
+                        <th scope="col">Fees Paid</th>
+                        <th scope="col">Account Number</th>
+                        <th scope="col">PAN Number</th>
+                        <th scope="col">IsApproved</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let u of user">
+                    <tr>
+                        <td>{{u.customer_name}}</td>
+                        <td>{{u.user_email}}</td>
+                        <td>{{u.user_name}}</td>
+                        <td>{{u.phone_number}}</td>
+                        <td>{{u.customer_dob}}</td>
+                        <td>{{u.user_address}}</td>
+                        <td>{{u.cardtype_id}}</td>
+                        <td>{{u.haspaid}}</td>
+                        <td>{{u.account_number}}</td>
+                        <td>{{u.pan_number}}</td>
+                        <td>{{u.isapproved}}</td>
+ 
+                        <td><button class="btn btn-success" type="submit" [routerLink]="['/AdminActivate/', u.customer_id]">Verify
+                            </button></td>
+                        <td><button class="btn btn-success" type="button" (click)="delete(u.customer_id)">Delete</button></td>
+                    </tr>
+                </tbody>
+ 
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+

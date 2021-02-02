@@ -1,0 +1,37 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+    display: flex;
+    border: solid black;
+    
+  }
+  
+  .leftc {
+    padding-top: 4.5%;
+    padding-left: 5%;
+    width: 50%;
+    position: relative;
+  }
+   
+  .rightc{
+    
+    width: 100%;
+    font-family: Roboto,HelveticaNeue-Light,sans-serif;
+  }
+  
+  
+  .topnav {
+    height: 70px;
+    overflow: hidden;
+    background-color:#f8c0b5;
+    width: 100%;
+    margin: auto;
+  
+  }
+  #nav_table{
+    float: right;
+    width: 20%;
+    margin: 30px 0px 0px 0px;
+    margin-right: 20px;
+  }

@@ -1,0 +1,55 @@
+
+
+<div style="background-color:#DADADA;margin-top: 10px;">
+  <div class="top">
+  
+<main class="container"style="background-color:#f8eded;margin-top: 10px; margin-bottom:150px;border-radius: 5px;">
+<div class="rightc">
+<div class="MAIN PRODUCT DETAILS">
+  <h1>{{product.product_name}}</h1>
+<span><strong>DETAILS:</strong> </span>
+  <div [innerHTML]="product.product_details"></div>           
+<p><strong>COST: {{product.product_price}}</strong></p>
+
+
+<form #f="ngForm">
+  <div class="form-group">
+    <select [ngModelOptions]="{standalone: true}" [(ngModel)]="emivar" ngDefaultControl id="emitypes" ngModel>
+      <option></option>
+      <option [ngValue]="c" *ngFor="let c of emitypes">
+        {{c.EMI_key}}
+      </option>
+    </select>&nbsp;&nbsp;&nbsp;
+    <button type="submit" (click)="onSubmit()">click here</button>
+    <br><br>
+    <div>Amount per month is:</div>
+    <div *ngIf="emistatus">
+      {{emiprice}}
+    </div> 
+  </div>
+</form>
+
+<button type="submit"(click)="placeorder()"><strong>ORDER NOW</strong></button>
+<br><br>
+<button type="submit"><strong>PAY NOW</strong></button>
+<br><br><br><br>
+
+</div>
+</div>
+
+<div class="leftc">
+    <img [src]="product.product_image" height="250">
+    <br><br><br>
+  </div>
+</main>
+<p style="color:#DADADA">.</p>
+</div>
+</div>
+<style>
+  .top{
+          padding-top:100px;
+          height: 100%;
+      } 
+</style>
+
+

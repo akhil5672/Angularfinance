@@ -1,0 +1,60 @@
+<div style="background-color:#DADADA;margin-top: 10px;">
+<div class="top">
+    <div style="margin-top: 30px; margin-bottom: 150px; width: 500px;" class="card">
+        <div class="card-header">User Login</div>
+        <div class="card-body">
+            <form #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" name="user_name" ngModel required #user_name="ngModel" class="form-control"
+                        id="user_name" placeholder="Enter username" [(ngModel)]="User.user_name">
+                </div>
+
+                <div *ngIf=" user_name.invalid && (f.submitted || user_name.touched)"
+                class="alert alert-danger">
+                <div *ngIf="user_name.errors?.required"> Username is required. </div>
+            </div>
+        
+
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" name="user_password" ngModel required #user_password="ngModel" class="form-control"
+                        id="user_password" placeholder="Enter Password" [(ngModel)]="User.user_password">
+                </div>
+
+                <div *ngIf=" user_password.invalid && (f.submitted || user_password.touched)"
+                class="alert alert-danger">
+                <div *ngIf="user_password.errors?.required"> Password is required. </div>
+            </div>
+
+                <div class="form-group form-check">
+                    <a routerLink="/Forgotpassword">Forgot Password?</a>
+                </div>
+                <button type="submit" (click)="Loginsubmit()" [disabled]=(!f.valid) style="font-size: 20px;font-family:Roboto,HelveticaNeue-Light,sans-serif ;"  class="btn btn-primary">Login </button>
+                <p>New user?
+                    <a routerLink="/Register"  style="font-size: 20px;">Register</a>
+                </p>
+            </form>
+            
+        </div>
+       
+    </div>
+    <p style="color: cornsilk;">.</p>
+    </div>
+</div>
+    <style>
+      .top{
+          padding-top:100px;
+          height: 100%;
+      }  
+      .card-header{
+          font-style: Roboto,HelveticaNeue-Light,sans-serif;
+          font-size: 24px;
+          text-align: center;
+      }
+      .card-body{
+          font-style: Roboto,HelveticaNeue-Light,sans-serif;
+          font-size: 20px;
+      }
+    </style>
+
